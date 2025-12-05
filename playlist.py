@@ -17,6 +17,18 @@ songs = [
 ]
 
 print(songs)
+def add_song():
+    title = input("Nhập tên bài hát: ")
+    artist = input("Nhập tên ca sĩ: ")
+    duration = int(input("Nhập thời lượng (giây): "))
+
+    song = {
+        'title': title,
+        'artist': artist,
+        'duration': duration
+    }
+    songs.append(song)
+    print(">>> Đã thêm bài hát!")
 def main():
     while True:
         print("\n--- MUSIC PLAYLIST MANAGER ---")
@@ -26,7 +38,7 @@ def main():
         print("4. Thoát")
         choice = input("Chọn chức năng: ")
         if choice == "1":
-            print(">>> Chức năng xem playlist (chưa làm).")      
+            add_song()
         elif choice == "2":
             print(">>> Chức năng thêm bài hát (chưa làm).")      
         elif choice == "3":
