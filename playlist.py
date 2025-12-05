@@ -36,6 +36,21 @@ def view_playlist():
         print("=== PLAYLIST ===")
         for i, s in enumerate(songs, 1):
             print(f"{i}. {s['title']} - {s['artist']} ({s['duration']}s)")
+def search_by_artist():
+    artist_name = input("Nhập tên ca sĩ cần tìm: ")
+
+    print(f"\n=== KẾT QUẢ TÌM KIẾM CHO: {artist_name} ===")
+
+    found = False  # kiểm tra có bài nào không
+
+    for song in songs:
+        if song['artist'].lower() == artist_name.lower():
+            print(f"- {song['title']} ({song['duration']}s)")
+            found = True
+
+    if not found:
+        print("Không tìm thấy bài hát nào của ca sĩ này!")
+
 def main():
     while True:
         print("\n--- MUSIC PLAYLIST MANAGER ---")
@@ -49,7 +64,7 @@ def main():
         elif choice == "2":
             view_playlist()     
         elif choice == "3":
-            print(">>> Chức năng tìm theo ca sĩ (chưa làm).")
+            search_by_artist()
         elif choice == "4":
             print("Kết thúc chương trình.")
             break
